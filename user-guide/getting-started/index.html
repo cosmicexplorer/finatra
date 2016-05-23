@@ -374,7 +374,7 @@
 
 <p>This type of configuration parameterization is generally preferred over hardcoding logic by a type of &ldquo;<em>environment</em>&rdquo; String within code. As such, flags are generally defined within a <a href="#module">Module</a> to allow for scoping of reusable external configuration. In this way, flags can be used to aid in the construction of an instance to be provided to the object graph, e.g., a DatabaseConnection instance that use the database URL flag as an input. The module is then able to tell Guice how to provide this object when injected by defining an <code>@Provides</code> annotated method.</p>
 
-<p>In Finatra, we also provide a way to override the objects provided on the object graph through &ldquo;override modules&rdquo;. See the &ldquo;Override Modules&rdquo; section in <a href="testing#override-modules">testing</a>.</p>
+<p>In Finatra, we also provide a way to override the objects provided on the object graph through &ldquo;override modules&rdquo;. See the &ldquo;Override Modules&rdquo; section in <a href="/finatra/testing#override-modules">testing</a>.</p>
 
 <h4><code>@Flag</code> annotation</h4>
 

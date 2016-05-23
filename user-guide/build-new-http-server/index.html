@@ -162,7 +162,7 @@
 <div></div>
 
 
-<p>Simplistically, a server can be thought of as a collection of <a href="#add-controller">controllers</a> composed with <a href="#add-filters">filters</a>. Additionally, a server can define what <a href="/finatra/user-guide/getting-started#modules">modules</a> to use and how to <a href="#exception-mapper">map exceptions</a>.</p>
+<p>Simplistically, a server can be thought of as a collection of <a href="/finatra/user-guide/build-new-http-server/controller.html">controllers</a> composed with <a href="/finatra/user-guide/build-new-http-server/filter.html">filters</a>. Additionally, a server can define what <a href="/finatra/user-guide/getting-started#modules">modules</a> to use and how to <a href="/finatra/user-guide/build-new-http-server/exceptions.html">map exceptions</a>.</p>
 
 <p>The Finatra convention is to create a Scala <a href="https://twitter.github.io/scala_school/basics2.html#object"><em>object</em></a> with a name ending in &ldquo;Main&rdquo; that extends your server class. The server class can be used in testing as this allows your server to be instantiated multiple times in tests without worrying about static state persisting across test runs in the same JVM. The static object, e.g., <code>ExampleServerMain</code> would then be used when running the server in all other cases (i.e., in production or staging).</p>
 

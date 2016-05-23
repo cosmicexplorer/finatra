@@ -215,7 +215,7 @@
 
 <p>Once again, the warmup handler is added <em>by type</em> allowing the framework to construct the instance.</p>
 
-<p>The <a href="https://github.com/twitter/finatra/blob/develop/inject/inject-app/src/main/scala/com/twitter/inject/app/App.scala#L119"><code>com.twitter.inject.app.App#warmup</code></a> lifecycle method is called before the server&rsquo;s external HTTP port(s) are bound and thus before the TwitterServer <a href="http://twitter.github.io/twitter-server/Features.html#lifecycle-management">Lifecycle Management</a> <code>/health</code> endpoint responds with <code>OK</code>. See <a href="/finatra/user-guide/getting-started#lifecycle">here</a> for more information on the lifecycle of a Finatra server.</p>
+<p>The <a href="https://github.com/twitter/finatra/blob/develop/inject/inject-app/src/main/scala/com/twitter/inject/app/App.scala#L122"><code>com.twitter.inject.app.App#warmup</code></a> lifecycle method is called before the server&rsquo;s external HTTP port(s) are bound and thus before the TwitterServer <a href="http://twitter.github.io/twitter-server/Features.html#lifecycle-management">Lifecycle Management</a> <code>/health</code> endpoint responds with <code>OK</code>. See <a href="/finatra/user-guide/getting-started#lifecycle">here</a> for more information on the lifecycle of a Finatra server.</p>
 
 <h2><a class="anchor" name="more-information" href="#more-information">More information</a></h2>
 

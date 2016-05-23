@@ -446,16 +446,16 @@
 <li>Request Fields:
 
 <ul>
-<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/integration/doeverything/main/domain/IdAndNameRequest.scala"><code>@RouteParam</code></a></li>
-<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/integration/doeverything/main/domain/RequestWithQueryParamSeqString.scala"><code>@QueryParam</code></a> (<em>ensure that @RouteParam names do not collide with @QueryParam names. Otherwise, an @QueryParam could end up parsing an @RouteParam</em>)</li>
-<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/integration/doeverything/main/domain/FormPostRequest.scala"><code>@FormParam</code></a></li>
-<li><code>@Header</code></li>
+<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/tests/integration/doeverything/main/domain/IdAndNameRequest.scala"><code>@RouteParam</code></a></li>
+<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/tests/integration/doeverything/main/domain/RequestWithQueryParamSeqString.scala"><code>@QueryParam</code></a> (<em>ensure that @RouteParam names do not collide with @QueryParam names. Otherwise, an @QueryParam could end up parsing an @RouteParam</em>)</li>
+<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/tests/integration/doeverything/main/domain/FormPostRequest.scala"><code>@FormParam</code></a></li>
+<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/tests/integration/doeverything/main/domain/CreateUserRequest.scala"><code>@Header</code></a></li>
 </ul>
 </li>
 <li>Other:
 
 <ul>
-<li><code>@RequestInject</code>: Injects the Finagle <code>http</code> Request or any Guice managed class into your case class</li>
+<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/tests/integration/doeverything/main/domain/RequestWithInjections.scala"><code>@Inject</code></a>: Can be used to inject the underlying Finagle <code>http</code> Request or any Guice managed class into your case class.</li>
 </ul>
 </li>
 </ul>
@@ -525,9 +525,9 @@
 <li><a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/request/RequestUtils.scala"><code>com.twitter.finatra.http.request.RequestUtils</code></a></li>
 <li><a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/fileupload/MultipartItem.scala"><code>com.twitter.finatra.http.fileupload.MultipartItem</code></a></li>
 <li><a href="https://github.com/twitter/finagle/blob/develop/finagle-http/src/main/scala/com/twitter/finagle/http/Request.scala#L192"><code>com.twitter.finagle.http.Request#decodeBytes</code></a></li>
-<li><a href="https://github.com/twitter/finatra/blob/develop/https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/integration/doeverything/main/controllers/DoEverythingController.scala#L530">DoEverythingController</a></li>
-<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/integration/doeverything/test/DoEverythingServerFeatureTest.scala#L309">DoEverythingServerFeatureTest</a></li>
-<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/request/MultiParamsTest.scala">MultiParamsTest</a></li>
+<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/tests/integration/doeverything/main/controllers/DoEverythingController.scala#L568">DoEverythingController</a></li>
+<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/tests/integration/doeverything/test/DoEverythingServerFeatureTest.scala#L332">DoEverythingServerFeatureTest</a></li>
+<li><a href="https://github.com/twitter/finatra/blob/develop/http/src/test/scala/com/twitter/finatra/http/tests/request/MultiParamsTest.scala">MultiParamsTest</a></li>
 </ul>
 
 
@@ -710,7 +710,7 @@
 
 <h3>Response Exceptions:</h3>
 
-<p>Responses can be embedded inside exceptions with <code>.toException</code>. You can throw the exception to terminate control flow, or wrap it inside a <code>Future.exception</code> to return a failed <code>Future</code>. However, instead of directly returning error responses in this manner, a better convention is to handle application-specific exceptions in an <a href="#exception-mapper"><code>ExceptionMapper</code></a>.</p>
+<p>Responses can be embedded inside exceptions with <code>.toException</code>. You can throw the exception to terminate control flow, or wrap it inside a <code>Future.exception</code> to return a failed <code>Future</code>. However, instead of directly returning error responses in this manner, a better convention is to handle application-specific exceptions in an <a href="/finatra/user-guide/build-new-http-server/exceptions.html"><code>ExceptionMapper</code></a>.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>

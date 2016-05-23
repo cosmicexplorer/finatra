@@ -110,13 +110,13 @@
 
 <blockquote><p>&ldquo;The Simple Logging Facade for Java serves as a simple facade or abstraction for various logging frameworks, such as java.util.logging, Logback and log4j. SLF4J allows the end-user to plug in the desired logging framework at deployment time.&rdquo;</p></blockquote>
 
-<p><a href="https://github.com/twitter/finatra/tree/master/slf4j"><code>finatra-slf4j</code></a> provides transitively SLF4J bridges for the following logging providers:</p>
+<p><a href="https://github.com/twitter/finatra/tree/develop/slf4j"><code>finatra-slf4j</code></a> provides transitively SLF4J bridges for the following logging providers:</p>
 
 <ul>
 <li><a href="http://en.wikipedia.org/wiki/Log4j">Log4j</a></li>
 <li><a href="http://commons.apache.org/proper/commons-logging/">commons-logging</a></li>
 <li>jdk14-logging</li>
-<li><a href="http://docs.oracle.com/javase/7/docs/api/index.html?java/util/logging/package-summary.html">java.util.logging</a>: There is a performance penalty for intercepting jul log messages, so make sure the framework includes the <a href="https://github.com/twitter/finatra/tree/master/slf4j/src/main/scala/com/twitter/finatra/logging/modules/Slf4jBridgeModule.scala">Slf4jBridgeModule</a> as a framework module. This will install the <a href="http://www.slf4j.org/api/org/slf4j/bridge/SLF4JBridgeHandler.html">SLF4JBridgeHandler</a> which mitigates most of the performance penalty.</li>
+<li><a href="http://docs.oracle.com/javase/7/docs/api/index.html?java/util/logging/package-summary.html">java.util.logging</a>: There is a performance penalty for intercepting jul log messages, so make sure the framework includes the <a href="https://github.com/twitter/finatra/blob/develop/slf4j/src/main/scala/com/twitter/finatra/logging/modules/Slf4jBridgeModule.scala">Slf4jBridgeModule</a> as a framework module. This will install the <a href="http://www.slf4j.org/api/org/slf4j/bridge/SLF4JBridgeHandler.html">SLF4JBridgeHandler</a> which mitigates most of the performance penalty.</li>
 </ul>
 
 
@@ -128,7 +128,7 @@
 
 <p>While there are several scala-wrappers for SLF4J, Finatra uses and exposes some additional features on top of the excellent <a href="http://software.clapper.org/grizzled-slf4j/">grizzled-slf4j</a> project.</p>
 
-<p>The main logging utility is the <a href="https://github.com/twitter/finatra/tree/master/inject/inject-core/src/main/scala/com/twitter/inject/Logging.scala">com.twitter.inject.Logging</a> trait which can be mixed into any object or class:</p>
+<p>The main logging utility is the <a href="https://github.com/twitter/finatra/blob/develop/inject/inject-core/src/main/scala/com/twitter/inject/Logging.scala">com.twitter.inject.Logging</a> trait which can be mixed into any object or class:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -158,27 +158,27 @@
 
 <hr />
 
-<p>We highly recommend using <a href="http://logback.qos.ch/">Logback</a> as an SLF4J binding (logging implementation). If you choose to use Logback, just include a jar dependency on <code>ch.qos.logback:logback-classic</code>. This will provide a Logback SLF4J implementation (<code>logback-classic</code>) in addition to the logging bridges provided transitively through the <a href="https://github.com/twitter/finatra/tree/master/slf4j"><code>finatra/slf4j</code></a> module.</p>
+<p>We highly recommend using <a href="http://logback.qos.ch/">Logback</a> as an SLF4J binding (logging implementation). If you choose to use Logback, just include a jar dependency on <code>ch.qos.logback:logback-classic</code>. This will provide a Logback SLF4J implementation (<code>logback-classic</code>) in addition to the logging bridges provided transitively through the <a href="https://github.com/twitter/finatra/tree/develop/slf4j"><code>finatra/slf4j</code></a> module.</p>
 
 <h3>Configuration</h3>
 
-<p>See the <a href="https://github.com/twitter/finatra/tree/master/examples/hello-world/src/main/resources/logback.xml">logback.xml</a> and <a href=".https://github.com/twitter/finatra/tree/master/examples/hello-world/src/test/resources/logback-test.xml">logback-test.xml</a> configuration files in the <a href="https://github.com/twitter/finatra/tree/master/examples/hello-world">hello-world</a> example project for example Logback configurations.</p>
+<p>See the <a href="https://github.com/twitter/finatra/blob/develop/examples/hello-world/src/main/resources/logback.xml">logback.xml</a> and <a href="https://github.com/twitter/finatra/blob/develop/examples/hello-world/src/test/resources/logback-test.xml">logback-test.xml</a> configuration files in the <a href="https://github.com/twitter/finatra/tree/develop/examples/hello-world">hello-world</a> example project for example Logback configurations.</p>
 
 <p>See the <a href="http://logback.qos.ch/manual/configuration.html">Logback documentation on configuration</a> for more information.</p>
 
-<p>The example <a href="https://github.com/twitter/finatra/tree/master/examples/hello-world/src/main/resources/logback.xml">logback.xml</a> configuration file makes use of <code>${log.access.output:-access.log}</code> and <code>${log.service.output:-service.log}</code> variables for configuring the <code>&lt;file/&gt;</code> output of two appenders. A variable&rsquo;s value is specified at runtime as a Java system property (e.g., <code>-Dlog.service.output=myservice.log</code>). If a value is not provided the inlined default will be used, i.e., what is on the other side of the <code>:-</code>, e.g., <code>service.log</code>.</p>
+<p>The example <a href="https://github.com/twitter/finatra/blob/develop/examples/hello-world/src/main/resources/logback.xml">logback.xml</a> configuration file makes use of <code>${log.access.output:-access.log}</code> and <code>${log.service.output:-service.log}</code> variables for configuring the <code>&lt;file/&gt;</code> output of two appenders. A variable&rsquo;s value is specified at runtime as a Java system property (e.g., <code>-Dlog.service.output=myservice.log</code>). If a value is not provided the inlined default will be used, i.e., what is on the other side of the <code>:-</code>, e.g., <code>service.log</code>.</p>
 
 <p>More information about Logback&rsquo;s variable substitution may be found here:&nbsp;&nbsp;<a href="http://logback.qos.ch/manual/configuration.html#variableSubstitution">http://logback.qos.ch/manual/configuration.html#variableSubstitution</a></p>
 
 <h3>Rerouting <code>java.util.logging</code></h3>
 
-<p>Additional configuration is necessary to reroute the <code>java.util.logging</code> system. The reason is that the <code>jul-to-slf4j</code> bridge cannot replace classes in the <code>java.util.logging</code> package to do the redirection statically as it does for the other bridge implementations. Instead, it has to register a handler on the root logger and listen for logging statements like any other handler. It will then redirect those logging statements appropriately. This redirection is accomplished via SLF4J&rsquo;s <code>SLF4JBridgeHandler</code> [<a href="http://www.slf4j.org/api/org/slf4j/bridge/SLF4JBridgeHandler.html">documentation</a>]. <a href="https://github.com/twitter/finatra/tree/master/slf4j"><code>finatra/slf4j</code></a> provides a module for initializing this bridge handler via the <a href="https://github.com/twitter/finatra/blob/develop/slf4j/src/main/scala/com/twitter/finatra/logging/modules/Slf4jBridgeModule.scala">Slf4jBridgeModule</a>. This module is added by the framework to Http and Thrift servers by default.</p>
+<p>Additional configuration is necessary to reroute the <code>java.util.logging</code> system. The reason is that the <code>jul-to-slf4j</code> bridge cannot replace classes in the <code>java.util.logging</code> package to do the redirection statically as it does for the other bridge implementations. Instead, it has to register a handler on the root logger and listen for logging statements like any other handler. It will then redirect those logging statements appropriately. This redirection is accomplished via SLF4J&rsquo;s <code>SLF4JBridgeHandler</code> [<a href="http://www.slf4j.org/api/org/slf4j/bridge/SLF4JBridgeHandler.html">documentation</a>]. <a href="https://github.com/twitter/finatra/tree/develop/slf4j"><code>finatra/slf4j</code></a> provides a module for initializing this bridge handler via the <a href="https://github.com/twitter/finatra/blob/develop/slf4j/src/main/scala/com/twitter/finatra/logging/modules/Slf4jBridgeModule.scala">Slf4jBridgeModule</a>. This module is added by the framework to Http and Thrift servers by default.</p>
 
 <h2><a class="no-pad-anchor" name="mdc" href="#mdc">Mapped Diagnostic Context Filter</a></h2>
 
 <hr />
 
-<p>Finatra offers an integration with Logback&rsquo;s <a href="http://logback.qos.ch/manual/mdc.html">Mapped Diagnostic Context</a> (MDC) for consistent logging of useful information. For example, the <a href="https://github.com/twitter/finatra/blob/develop/examples/hello-world/src/main/resources/logback.xml#L19">hello-world configuration</a> references the contextual key &ldquo;traceId&rdquo; which will be logged with every statement sent to the appender. It is the responsibility of the application to populate the MDC with this contextual information. In this case, the &ldquo;traceId&rdquo; is added by including either the http  <a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/filters/TraceIdMDCFilter.scala">TraceIdMDCLoggingFilter</a> or thrift <a href="https://github.com/twitter/finatra/blob/develop/thrift/src/main/scala/com/twitter/finatra/thrift/filters/TraceIdMDCFilter.scala">TraceIdMDCLoggingFilter</a>.</p>
+<p>Finatra offers an integration with Logback&rsquo;s <a href="http://logback.qos.ch/manual/mdc.html">Mapped Diagnostic Context</a> (MDC) for consistent logging of useful information. For example, the <a href="https://github.com/twitter/finatra/blob/develop/examples/hello-world/src/main/resources/logback.xml#L25">hello-world configuration</a> references the contextual key &ldquo;traceId&rdquo; which will be logged with every statement sent to the appender. It is the responsibility of the application to populate the MDC with this contextual information. In this case, the &ldquo;traceId&rdquo; is added by including either the http  <a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/filters/TraceIdMDCFilter.scala">TraceIdMDCLoggingFilter</a> or thrift <a href="https://github.com/twitter/finatra/blob/develop/thrift/src/main/scala/com/twitter/finatra/thrift/filters/TraceIdMDCFilter.scala">TraceIdMDCLoggingFilter</a>.</p>
 
 <p>In order to use the Mapped Diagnostic Context, an application must first initialize the MDC <a href="http://twitter.github.io/finagle/">Finagle</a> adapter provided by Finatra. This initialization is provided by including either the http <a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/filters/LoggingMDCFilter.scala#L14">LoggingMDCFilter</a> or thrift <a href="https://github.com/twitter/finatra/blob/develop/thrift/src/main/scala/com/twitter/finatra/thrift/filters/LoggingMDCFilter.scala#L14">LoggingMDCFilter</a> in your filter chain.</p>
 
