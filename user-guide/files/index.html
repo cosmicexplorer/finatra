@@ -125,7 +125,7 @@
 
 <p>Additionally, it is recommend to use local filesystem serving <em>only during testing</em> and <strong>not in production</strong>. It is recommended that you include files to be served as classpath resources in production.</p>
 
-<p>For changes from Finatra v1.x static files behavior see the <a href="https://github.com/twitter/finatra/blob/master/http/Version1MigrationGuide.md#v1-static-files">Static Files</a> section in the <a href="https://github.com/twitter/finatra/blob/master/http/Version1MigrationGuide.md">Version 1 Migration Guide</a>.</p>
+<p>For changes from Finatra v1.x static files behavior see the <a href="/finatra/user-guide/v1-migration#v1-static-files">Static Files</a> section in the <a href="/finatra/user-guide/v1-migration">Version 1 Migration Guide</a>.</p>
 
 <p>To set a flag value, pass the flag and it&rsquo;s value as a argument to your server:</p>
 
@@ -164,7 +164,7 @@
 
 <hr />
 
-<p>Finatra supports the rendering of mustache templates. The framework provides a default <a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/modules/MustacheModule.scala">MustacheModule</a> but this is configurable. To set your own module override the mustacheModule def in <a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/HttpServer.scala#L63"><code>com.twitter.finatra.http.HttpServer</code></a>, e.g.,</p>
+<p>Finatra supports the rendering of mustache templates. The framework provides a default <a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/modules/MustacheModule.scala">MustacheModule</a> but this is configurable. To set your own module override the mustacheModule def in <a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/HttpServer.scala#L91"><code>com.twitter.finatra.http.HttpServer</code></a>, e.g.,</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -216,7 +216,7 @@
 <div></div>
 
 
-<p>The value of the <code>@Mustache</code> annotation is assumed by the <a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/internal/marshalling/mustache/MustacheMessageBodyWriter.scala">MustacheMessageBodyWriter</a> to be the template filename without the suffix (which is <a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/internal/marshalling/mustache/MustacheMessageBodyWriter.scala#L32">assumed to be <code>.mustache</code></a>).</p>
+<p>The value of the <code>@Mustache</code> annotation is assumed by the <a href="https://github.com/twitter/finatra/blob/develop/http/src/main/scala/com/twitter/finatra/http/internal/marshalling/mustache/MustacheMessageBodyWriter.scala">MustacheMessageBodyWriter</a> to be the template filename without the suffix (which the framework <strong>always assumes</strong> to be <code>.mustache</code>).</p>
 
 <p>Or you can manually create a response that explicitly references a template, e.g.,</p>
 
